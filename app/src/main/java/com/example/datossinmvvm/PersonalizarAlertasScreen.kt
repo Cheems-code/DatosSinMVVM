@@ -15,6 +15,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PersonalizarAlertasCRUDScreen(
@@ -32,10 +33,10 @@ fun PersonalizarAlertasCRUDScreen(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
+                        // Icono de la izquierda para navegar a Notificaciones
                         IconButton(
-                            onClick = { /* Acción para el icono local */ },
-                            modifier = Modifier
-                                .size(48.dp)
+                            onClick = { navController.navigate("notificaciones") },
+                            modifier = Modifier.size(48.dp)
                         ) {
                             Icon(
                                 painter = painterResource(id = R.drawable.menu_07),
@@ -52,10 +53,10 @@ fun PersonalizarAlertasCRUDScreen(
 
                         // Icono de la derecha (puedes cambiarlo por uno local)
                         IconButton(onClick = {
-                            // Acción para el icono de la derecha
+                            // Acción para el icono de la derecha (si necesitas)
                         }) {
                             Icon(
-                                painter = painterResource(id = R.drawable.lapiz),
+                                painter = painterResource(id = R.drawable.lapiz), // Asegúrate de que este recurso esté disponible
                                 contentDescription = "Descripción del icono"
                             )
                         }
@@ -89,7 +90,6 @@ fun PersonalizarAlertasCRUDScreen(
         }
     }
 }
-
 
 @Composable
 fun NotificacionesCRUD(

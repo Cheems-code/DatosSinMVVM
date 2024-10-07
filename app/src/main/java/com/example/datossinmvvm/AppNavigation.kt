@@ -26,13 +26,24 @@ fun AppNavigation() {
                 }
             )
         }
+
+        // Nueva ruta para la pantalla de notificaciones
+        composable("notificaciones") {
+            NotificacionesScreen(
+                navController = navController,
+                notificaciones = notificaciones,
+                onUpdateNotificaciones = { updatedList ->
+                    notificaciones = updatedList
+                }
+            )
+        }
+
         composable(
             "editar_notificacion/{index}",
             arguments = listOf(navArgument("index") { type = NavType.IntType })
         ) { backStackEntry ->
             val index = backStackEntry.arguments?.getInt("index") ?: 0
             val notificacionActual = notificaciones.getOrNull(index)
-
 
             if (notificacionActual != null) {
                 EditarNotificacionScreen(
@@ -47,6 +58,7 @@ fun AppNavigation() {
                 )
             }
         }
+
         composable("crear_notificacion") {
             CrearNotificacionScreen(
                 navController = navController,
